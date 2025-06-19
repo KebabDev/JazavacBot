@@ -8,7 +8,7 @@ bot=commands.Bot(command_prefix="j!", intents=intents)
 
 @bot.event
 async def on_ready():
-    await bot.tree.sync(guild=discord.Object(id=1370815385200492634))
+    await bot.tree.sync()
     await bot.change_presence(activity=discord.Game(name="Ivan je peder!"))
 
     print(f"[i] Logged in as {bot.user}")
@@ -21,7 +21,7 @@ async def is_user_jazavac(id):
 
 @app_commands.allowed_installs(guilds=True, users=True)
 @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
-@bot.tree.command(name="jazavac", description="Da li je osoba jazavac?!", guild=discord.Object(id=1370815385200492634)) # Remove this later for global)
+@bot.tree.command(name="jazavac", description="Da li je osoba jazavac?!")
 @app_commands.describe(user="Koga želiš nazvati jazavcem?")
 async def jazavac(interaction: discord.Interaction, user: discord.User):
     is_jazavac = await is_user_jazavac(user.id)
@@ -47,7 +47,7 @@ async def jazavac(interaction: discord.Interaction, user: discord.User):
 
 @app_commands.allowed_installs(guilds=True, users=True)
 @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
-@bot.tree.command(name="depresivan", description="Da li je jazavac depresivan? ;[", guild=discord.Object(id=1370815385200492634))
+@bot.tree.command(name="depresivan", description="Da li je jazavac depresivan? ;[")
 @app_commands.describe(user="Koga želiš nazvati depresivnim jazavcem?")
 async def depresivan(interaction: discord.Interaction, user: discord.User):
     is_jazavac = await is_user_jazavac(user.id)
@@ -73,7 +73,7 @@ async def depresivan(interaction: discord.Interaction, user: discord.User):
 
 @app_commands.allowed_installs(guilds=True, users=True)
 @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
-@bot.tree.command(name="uhvati", description="Prikaži uhvaćenog jazavca u 4k!", guild=discord.Object(id=1370815385200492634))
+@bot.tree.command(name="uhvati", description="Prikaži uhvaćenog jazavca u 4k!")
 @app_commands.describe(user="Kog jazavca želiš uhvatiti u 4k?")
 async def uhvati(interaction: discord.Interaction, user: discord.User):
     is_jazavac = await is_user_jazavac(user.id)
