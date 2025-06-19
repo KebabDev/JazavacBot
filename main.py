@@ -19,7 +19,6 @@ async def is_user_jazavac(id):
             return False
     return True
 
-@app_commands.user_install()
 @app_commands.allowed_installs(guilds=True, users=True)
 @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
 @bot.tree.command(name="jazavac", description="Da li je osoba jazavac?!")
